@@ -1,15 +1,6 @@
-const ReactDom = require("react-dom/client");
-const React = require("react");
-
-const App = () => {
-  return (
-    <>
-      <div>
-        <h1>Inventory Contents</h1>
-      </div>
-    </>
-  );
-};
+import ReactDom from "react-dom/client";
+import React from "react";
+import { App } from "./App.jsx";
 
 const root = ReactDom.createRoot(document.getElementById("app"));
-root.render(App);
+root.render(<App />);
