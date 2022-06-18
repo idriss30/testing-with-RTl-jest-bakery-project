@@ -9,9 +9,6 @@
   },
   "author": "idris",
   "license": "ISC",
-  "jest": {
-    "testEnvironment": "jsdom"
-  },
   "browserify": {
     "transform": [
       [
@@ -33,6 +30,9 @@
     "@babel/core": "^7.18.5",
     "@babel/preset-env": "^7.18.2",
     "@babel/preset-react": "^7.17.12",
+    "@testing-library/dom": "^8.13.0",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.3.0",
     "babelify": "^10.0.0",
     "browserify": "^17.0.0",
     "jest": "^28.1.1",
