@@ -1,12 +1,8 @@
 import { act } from "react-dom/test-utils";
+import { render } from "@testing-library/react";
 import React from "react";
-import ReactDom from "react-dom/client";
 import { App } from "./App.jsx";
-
-const container = document.createElement("div");
-container.setAttribute("id", "app");
-document.body.appendChild(container);
-const root = ReactDom.createRoot(container);
+import { screen, fireEvent } from "@testing-library/dom";
 
 // makinkg sure to configure environment to be true so i could use act with react18
 beforeAll(() => {
@@ -14,9 +10,18 @@ beforeAll(() => {
 });
 
 test("checking if proper header is displayed", () => {
+  render(<App />);
+
+  expect(screen.getByText("Inventory Contents")).toBeTruthy();
+});
+
+test("increment button danish", () => {
+  render(<App />);
+  const button = screen.getByText("Increment danish");
+
   act(() => {
-    root.render(<App />);
+    fireEvent.click(button);
   });
-  const header = document.querySelector("h1");
-  expect(header.textContent).toBe("Inventory Contents");
+
+  expect(screen.getByText("Danish, 1")).toBeInTheDocument();
 });
