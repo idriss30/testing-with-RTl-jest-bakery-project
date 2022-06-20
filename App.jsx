@@ -8,7 +8,7 @@ export const App = () => {
   return (
     <>
       <div>
-        <h1>Inventory Contents</h1>
+        <h1>Inventory Content</h1>
         <p>Danish, {danishes}</p>
         <button onClick={clickButton}>Increment danish</button>
       </div>
