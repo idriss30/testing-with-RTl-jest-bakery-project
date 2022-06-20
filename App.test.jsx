@@ -1,8 +1,6 @@
-import { act } from "react-dom/test-utils";
-import { render } from "@testing-library/react";
+import { render, fireEvent } from "@testing-library/react";
 import React from "react";
 import { App } from "./App.jsx";
-import { screen, fireEvent } from "@testing-library/dom";
 
 // makinkg sure to configure environment to be true so i could use act with react18
 beforeAll(() => {
@@ -10,18 +8,17 @@ beforeAll(() => {
 });
 
 test("checking if proper header is displayed", () => {
-  render(<App />);
-
-  expect(screen.getByText("Inventory Contents")).toBeTruthy();
+  const { getByText } = render(<App />);
+  expect(getByText("Inventory Content")).toBeInTheDocument();
 });
 
 test("increment button danish", () => {
-  render(<App />);
-  const button = screen.getByText("Increment danish");
+  const { getByText } = render(<App />);
 
-  act(() => {
-    fireEvent.click(button);
-  });
+  expect(getByText("Danish, 0")).toBeInTheDocument();
+  const button = getByText("Increment danish");
 
-  expect(screen.getByText("Danish, 1")).toBeInTheDocument();
+  fireEvent.click(button);
+
+  expect(getByText("Danish, 1")).toBeInTheDocument();
 });
