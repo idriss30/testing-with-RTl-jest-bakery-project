@@ -1,16 +1,13 @@
 import React from "react";
+import { Form } from "./Form.jsx";
 
 export const App = () => {
-  const [danishes, setDanishes] = React.useState(0);
-  const clickButton = () => {
-    setDanishes(danishes + 1);
-  };
   return (
     <>
       <div>
         <h1>Inventory Content</h1>
-        <p>Danish, {danishes}</p>
-        <button onClick={clickButton}>Increment danish</button>
+        <h2>Add item through the Form</h2>
+        <Form />
       </div>
     </>
   );
