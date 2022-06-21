@@ -34,7 +34,9 @@
     "@testing-library/react": "^13.3.0",
     "babelify": "^10.0.0",
     "browserify": "^17.0.0",
+    "isomorphic-fetch": "^3.0.0",
     "jest": "^28.1.1",
-    "jest-environment-jsdom": "^28.1.1"
+    "jest-environment-jsdom": "^28.1.1",
+    "nock": "^13.2.7"
   }
 }
