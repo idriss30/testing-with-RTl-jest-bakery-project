@@ -3,7 +3,7 @@ import { App } from "./App.jsx";
 import nock from "nock";
 import { API_ADDR } from "./apiaddress.js";
 
-import { act, render, waitFor } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 
 beforeEach(() => {
   nock(API_ADDR)
@@ -30,13 +30,20 @@ test("renders the appropriate header", async () => {
 });
 
 test("rendering the server's list of items", async () => {
-  const { getByText } = render(<App />);
+  render(<App />);
 
-  const listElement = document.querySelector("ul");
-  waitFor(() => {
-    expect(listElement.childElementCount).toBe(3);
-    expect(getByText("cheesecake - Quantity : 2")).toBeInTheDocument();
-    expect(getByText("croissant - Quantity : 5")).toBeInTheDocument();
-    expect(getByText("macaroon - Quantity : 96")).toBeInTheDocument();
+  await waitFor(() => {
+    const ul = document.querySelector("ul");
+    expect(ul.childElementCount).toBe(3);
   });
+
+  expect(
+    await screen.findByText("cheesecake - Quantity : 2")
+  ).toBeInTheDocument();
+  expect(
+    await screen.findByText("croissant - Quantity : 5")
+  ).toBeInTheDocument();
+  expect(
+    await screen.findByText("macaroon - Quantity : 96")
+  ).toBeInTheDocument();
 });
