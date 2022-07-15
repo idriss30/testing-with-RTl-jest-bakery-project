@@ -2,22 +2,24 @@ import React from "react";
 import { API_ADDR } from "./apiaddress.js";
 
 export const addingItemRequest = async (itemName, quantity) => {
-  const it = await fetch(`${API_ADDR}/inventory/${itemName}`, {
+  const postItem = await fetch(`${API_ADDR}/inventory/${itemName}`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ itemName, quantity }),
   });
 
-  return await it.json();
+  return await postItem.json();
 };
 
-export const Form = () => {
+export const Form = ({ onItemAdded }) => {
   const [itemName, setItemName] = React.useState("");
   const [quantity, setQuantity] = React.useState(0);
 
   const onFormSubmit = async (e) => {
     e.preventDefault();
+    e.target.reset();
     await addingItemRequest(itemName, quantity);
+    if (onItemAdded) onItemAdded(itemName, quantity);
   };
 
   return (
