@@ -1,14 +1,14 @@
 import React from "react";
 
 export const ItemList = ({ items }) => {
-  const arr = Object.entries(items);
+  const arr = Object.values(items);
 
   return (
     <ul>
-      {arr.map(([index, product]) => {
+      {arr.map((item, index) => {
         return (
           <li key={index}>
-            {product.productName} - Quantity : {product.productQty}
+            {item.productName} - Quantity : {item.productQty}
           </li>
         );
       })}
