@@ -2,6 +2,7 @@ import React from "react";
 import { App } from "./App.jsx";
 import nock from "nock";
 import { API_ADDR } from "./apiaddress.js";
+import { generateProductText } from "./itemList.jsx";
 
 import { render, screen, waitFor, fireEvent } from "@testing-library/react";
 
@@ -34,16 +35,16 @@ test("rendering the server's list of items", async () => {
 
   await waitFor(async () => {
     expect(
-      await screen.findByText("cheesecake - Quantity : 2")
+      await screen.findByText(generateProductText("cheesecake", 2))
     ).toBeInTheDocument();
   });
   const ul = document.querySelector("ul");
   expect(ul.children).toHaveLength(3);
   expect(
-    await screen.findByText("croissant - Quantity : 5")
+    await screen.findByText(generateProductText("croissant", 5))
   ).toBeInTheDocument();
   expect(
-    await screen.findByText("macaroon - Quantity : 96")
+    await screen.findByText(generateProductText("macaroon", 96))
   ).toBeInTheDocument();
 });
 
@@ -64,7 +65,7 @@ test("update state with new list items", async () => {
 
   await waitFor(async () => {
     expect(
-      await screen.findByText("cheesecake - Quantity : 2")
+      await screen.findByText(generateProductText("cheesecake", 2))
     ).toBeInTheDocument();
   });
 
@@ -76,7 +77,7 @@ test("update state with new list items", async () => {
   // wait for second interceptor Event
   await waitFor(async () => {
     expect(
-      await screen.findByText("danish - Quantity : 100")
+      await screen.findByText(generateProductText("danish", 100))
     ).toBeInTheDocument();
   });
 
@@ -84,9 +85,9 @@ test("update state with new list items", async () => {
   expect(ul.childElementCount).toBe(4);
 
   expect(
-    await screen.findByText("croissant - Quantity : 5")
+    await screen.findByText(generateProductText("croissant", 5))
   ).toBeInTheDocument();
   expect(
-    await screen.findByText("macaroon - Quantity : 96")
+    await screen.findByText(generateProductText("macaroon", 96))
   ).toBeInTheDocument();
 });
