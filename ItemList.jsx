@@ -8,10 +8,14 @@ export const ItemList = ({ items }) => {
       {arr.map((item, index) => {
         return (
           <li key={index}>
-            {item.productName} - Quantity : {item.productQty}
+            {generateProductText(item.productName, item.productQty)}
           </li>
         );
       })}
     </ul>
   );
+};
+
+export const generateProductText = (itemName, quantity) => {
+  return `${itemName} - Quantity : ${quantity}`;
 };
