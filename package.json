@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "build": "browserify index.jsx -o bundle.js"
+    "build": "browserify index.jsx  -p esmify -o bundle.js"
   },
   "author": "idris",
   "license": "ISC",
@@ -30,7 +30,8 @@
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-spring": "^8.0.27"
   },
   "devDependencies": {
     "@babel/core": "^7.18.5",
@@ -41,6 +42,7 @@
     "babelify": "^10.0.0",
     "browserify": "^17.0.0",
     "core-js": "^3.23.3",
+    "esmify": "^2.1.1",
     "isomorphic-fetch": "^3.0.0",
     "jest": "^28.1.1",
     "jest-environment-jsdom": "^28.1.1",
