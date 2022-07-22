@@ -5,6 +5,7 @@ import { API_ADDR } from "./apiaddress.js";
 import { generateProductText } from "./itemList.jsx";
 
 import { render, screen, waitFor, fireEvent } from "@testing-library/react";
+jest.mock("react-spring/renderprops");
 
 beforeEach(() => {
   nock(API_ADDR)
@@ -79,10 +80,9 @@ test("update state with new list items", async () => {
     expect(
       await screen.findByText(generateProductText("danish", 100))
     ).toBeInTheDocument();
+    const ul = document.querySelector("ul");
+    expect(ul.childElementCount).toBe(4);
   });
-
-  const ul = document.querySelector("ul");
-  expect(ul.childElementCount).toBe(4);
 
   expect(
     await screen.findByText(generateProductText("croissant", 5))

@@ -2,6 +2,8 @@ import React from "react";
 import { render } from "@testing-library/react";
 import { ItemList, generateProductText } from "./ItemList.jsx";
 
+jest.mock("react-spring/renderprops");
+
 describe("testing ItemsListComponents", () => {
   test("render list of items with ItemList", () => {
     const items = [
