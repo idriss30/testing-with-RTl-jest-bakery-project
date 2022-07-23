@@ -17,8 +17,8 @@ beforeEach(() => {
     ]);
 });
 
-afterEach(() => {
-  waitFor(() => {
+afterEach(async () => {
+  await waitFor(() => {
     if (!nock.isDone()) {
       nock.cleanAll();
       throw new Error("inventory route not reached");
@@ -27,8 +27,8 @@ afterEach(() => {
 });
 
 test("renders the appropriate header", async () => {
-  const { findByText } = render(<App />);
-  expect(await findByText("Inventory Content")).toBeInTheDocument();
+  render(<App />);
+  expect(await screen.findByText(/inventory Content/i)).toBeInTheDocument();
 });
 
 test("rendering the server's list of items", async () => {
@@ -80,9 +80,10 @@ test("update state with new list items", async () => {
     expect(
       await screen.findByText(generateProductText("danish", 100))
     ).toBeInTheDocument();
-    const ul = document.querySelector("ul");
-    expect(ul.childElementCount).toBe(4);
   });
+
+  const ul = document.querySelector("ul");
+  expect(ul.childElementCount).toBe(4);
 
   expect(
     await screen.findByText(generateProductText("croissant", 5))
