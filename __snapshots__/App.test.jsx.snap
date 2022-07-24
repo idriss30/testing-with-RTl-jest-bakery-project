@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`testing action log snapshot when loading initial inventory 1`] = `
+<div
+  data-testid="action-log"
+>
+  <h2>
+    Action Log
+  </h2>
+  <ul>
+    <li>
+      Sun, 24 Jul 2022 10:53:07 GMT
+       - 
+      inventory loaded from server
+       - 
+      {"status":200,"body":[{"productName":"cheesecake","productQty":2},{"productName":"croissant","productQty":5},{"productName":"macaroon","productQty":96}]}
+    </li>
+  </ul>
+</div>
+`;
