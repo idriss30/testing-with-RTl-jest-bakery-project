@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Form } from "./Form.jsx";
 import { API_ADDR } from "./apiaddress.js";
 import { ItemList } from "./itemList.jsx";
+import { ActionLog } from "./ActionLog.jsx";
 
 export const App = () => {
   const [items, setItems] = useState({});
+  const [actions, setActions] = useState([]);
 
   const updatedItems = (itemName, quantity) => {
     const newArr = Object.values(items);
@@ -26,9 +28,17 @@ export const App = () => {
     let isMounted = true;
     const fetchItems = async () => {
       const getItems = await fetch(`${API_ADDR}/inventory/`);
+      const data = await getItems.json();
 
       if (isMounted) {
-        setItems(await getItems.json());
+        setItems(data);
+        setActions(
+          actions.concat({
+            time: new Date().toISOString(),
+            message: "inventory loaded from server",
+            data: { status: getItems.status, body: data },
+          })
+        );
       }
     };
     fetchItems();
@@ -44,6 +54,7 @@ export const App = () => {
         <h2>Add item through the Form</h2>
         <Form onItemAdded={updatedItems} />
         <ItemList items={items} />
+        <ActionLog actions={actions} />
       </div>
     </>
   );
