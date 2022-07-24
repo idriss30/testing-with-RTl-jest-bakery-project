@@ -92,3 +92,18 @@ test("update state with new list items", async () => {
     await screen.findByText(generateProductText("macaroon", 96))
   ).toBeInTheDocument();
 });
+
+test("testing action log snapshot when loading initial inventory", async () => {
+  jest
+    .spyOn(Date.prototype, "toISOString")
+    .mockReturnValue("Sun, 24 Jul 2022 10:53:07 GMT");
+
+  const { getByTestId } = render(<App />);
+  await waitFor(() => {
+    const ul = document.querySelector("ul");
+    expect(ul.childElementCount).toBe(3);
+  });
+
+  const actionLog = getByTestId("action-log");
+  expect(actionLog).toMatchSnapshot();
+});
