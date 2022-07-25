@@ -17,7 +17,11 @@ export const ItemList = ({ items }) => {
         {({ productName, productQty }) =>
           (styleProps) =>
             (
-              <li key={productName} style={styleProps}>
+              <li
+                key={productName}
+                className={productQty < 5 ? "out_of_stock" : null}
+                style={styleProps}
+              >
                 {generateProductText(productName, productQty)}
               </li>
             )}
