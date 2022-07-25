@@ -24,7 +24,9 @@ function _interopRequireDefault(obj) {
 
 var ActionLog = function ActionLog(_ref) {
   var actions = _ref.actions;
-  return /*#__PURE__*/_react["default"].createElement(_react["default"].Fragment, null, /*#__PURE__*/_react["default"].createElement("h2", null, "Action Log"), /*#__PURE__*/_react["default"].createElement("ul", null, actions.map(function (_ref2, i) {
+  return /*#__PURE__*/_react["default"].createElement(_react["default"].Fragment, null, /*#__PURE__*/_react["default"].createElement("div", {
+    "data-testid": "action-log"
+  }, /*#__PURE__*/_react["default"].createElement("h2", null, "Action Log"), /*#__PURE__*/_react["default"].createElement("ul", null, actions.map(function (_ref2, i) {
     var time = _ref2.time,
         message = _ref2.message,
         data = _ref2.data;
@@ -32,7 +34,7 @@ var ActionLog = function ActionLog(_ref) {
     return /*#__PURE__*/_react["default"].createElement("li", {
       key: i
     }, date, " - ", message, " - ", JSON.stringify(data));
-  })));
+  }))));
 };
 
 exports.ActionLog = ActionLog;
@@ -582,6 +584,7 @@ var ItemList = function ItemList(_ref) {
     return function (styleProps) {
       return /*#__PURE__*/_react["default"].createElement("li", {
         key: productName,
+        className: productQty < 5 ? "out_of_stock" : null,
         style: styleProps
       }, generateProductText(productName, productQty));
     };
