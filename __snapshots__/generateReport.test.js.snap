@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`generate a .txt report 1`] = `
+"cheesecake - Quantity : 20 - value : 100
+danish - Quantity : 50 - value : 150
+croissant - Quantity : 500 - value : 3000
+Total value: 14"
+`;
