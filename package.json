@@ -46,6 +46,7 @@
     "esmify": "^2.1.1",
     "isomorphic-fetch": "^3.0.0",
     "jest": "^28.1.1",
+    "jest-emotion": "^11.0.0",
     "jest-environment-jsdom": "^28.1.1",
     "nock": "^13.2.7"
   }
