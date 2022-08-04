@@ -36,6 +36,6 @@ test("testing style for items that are less or equal to 5", () => {
   const cheesecake = screen.getByText(generateProductText("cheesecake", 4));
   const croissant = screen.getByText(generateProductText("croissant", 2));
 
-  expect(cheesecake).toHaveStyle({ color: "crimson", fontWeight: "bold" });
-  expect(croissant).toHaveStyle({ color: "crimson", fontWeight: "bold" });
+  expect(cheesecake).toMatchSnapshot();
+  expect(croissant).toMatchSnapshot();
 });
