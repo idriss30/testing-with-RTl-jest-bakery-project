@@ -3,5 +3,6 @@ module.exports = {
   setupFilesAfterEnv: [
     "<rootDir>/jestDomSetup.js",
     "<rootDir>/setupGlobalFetch.js",
+    "<rootDir>/setupJestEmotion.js",
   ],
 };
