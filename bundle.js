@@ -547,7 +547,7 @@ require("core-js/modules/es.object.values.js");
 
 require("core-js/modules/es.array.concat.js");
 
-var _templateObject;
+var _templateObject, _templateObject2;
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
@@ -573,7 +573,8 @@ function _interopRequireDefault(obj) {
 var ItemList = function ItemList(_ref) {
   var items = _ref.items;
   var arr = Object.values(items);
-  var outOfStock = (0, _react2.css)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    font-weight: bold;\n    color: crimson;\n  "])));
+  var pulsate = (0, _react2.keyframes)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n   0% { opacity:0}\n   50% {opacity:.5}\n   100%{opacity:1}\n  "])));
+  var outOfStock = (0, _react2.css)(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    font-weight: bold;\n    color: crimson;\n    animation: ", " 3s linear infinite;\n  "])), pulsate);
   return (0, _react2.jsx)("ul", null, (0, _react2.jsx)(_renderprops.Transition, {
     items: arr,
     initial: null,
