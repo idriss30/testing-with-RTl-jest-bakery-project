@@ -38,6 +38,7 @@
     "@babel/core": "^7.18.5",
     "@babel/preset-env": "^7.18.2",
     "@babel/preset-react": "^7.17.12",
+    "@emotion/jest": "^11.10.0",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "babelify": "^10.0.0",
@@ -46,7 +47,6 @@
     "esmify": "^2.1.1",
     "isomorphic-fetch": "^3.0.0",
     "jest": "^28.1.1",
-    "jest-emotion": "^11.0.0",
     "jest-environment-jsdom": "^28.1.1",
     "nock": "^13.2.7"
   }
