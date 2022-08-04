@@ -2,31 +2,35 @@
 
 exports[`testing action log functions 1`] = `
 <div>
-  <h2>
-    Action Log
-  </h2>
-  <ul>
-    <li>
-      Sun, 11 Jan 1970 00:00:00 GMT
-       - 
-      initial inventory loaded
-       - 
-      {"cheesecake":2,"danish":100,"croissant":30}
-    </li>
-    <li>
-      Wed, 21 Jan 1970 00:00:00 GMT
-       - 
-      added chocolate-croissant
-       - 
-      {"chocolate-croissant":30}
-    </li>
-    <li>
-      Wed, 21 Jan 1970 00:00:00 GMT
-       - 
-      item removed
-       - 
-      {"croissant":20}
-    </li>
-  </ul>
+  <div
+    data-testid="action-log"
+  >
+    <h2>
+      Action Log
+    </h2>
+    <ul>
+      <li>
+        Sun, 11 Jan 1970 00:00:00 GMT
+         - 
+        initial inventory loaded
+         - 
+        {"cheesecake":2,"danish":100,"croissant":30}
+      </li>
+      <li>
+        Wed, 21 Jan 1970 00:00:00 GMT
+         - 
+        added chocolate-croissant
+         - 
+        {"chocolate-croissant":30}
+      </li>
+      <li>
+        Wed, 21 Jan 1970 00:00:00 GMT
+         - 
+        item removed
+         - 
+        {"croissant":20}
+      </li>
+    </ul>
+  </div>
 </div>
 `;
