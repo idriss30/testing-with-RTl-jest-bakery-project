@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`testing style for items that are less or equal to 5 1`] = `
+@keyframes animation-0 {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: .5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.emotion-0 {
+  font-weight: bold;
+  color: crimson;
+  -webkit-animation: animation-0 3s linear infinite;
+  animation: animation-0 3s linear infinite;
+}
+
+<li
+  class="emotion-0"
+>
+  cheesecake - Quantity : 4
+</li>
+`;
+
+exports[`testing style for items that are less or equal to 5 2`] = `
+@keyframes animation-0 {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: .5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.emotion-0 {
+  font-weight: bold;
+  color: crimson;
+  -webkit-animation: animation-0 3s linear infinite;
+  animation: animation-0 3s linear infinite;
+}
+
+<li
+  class="emotion-0"
+>
+  croissant - Quantity : 2
+</li>
+`;
