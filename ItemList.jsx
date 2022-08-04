@@ -1,14 +1,21 @@
 /* @jsx jsx */
 import React from "react";
 import { Transition } from "react-spring/renderprops";
-import { css, jsx } from "@emotion/react";
+import { css, jsx, keyframes } from "@emotion/react";
 
 export const ItemList = ({ items }) => {
   const arr = Object.values(items);
 
+  const pulsate = keyframes`
+   0% { opacity:0}
+   50% {opacity:.5}
+   100%{opacity:1}
+  `;
+
   const outOfStock = css`
     font-weight: bold;
     color: crimson;
+    animation: ${pulsate} 3s linear infinite;
   `;
 
   return (
