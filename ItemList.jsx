@@ -1,8 +1,15 @@
+/* @jsx jsx */
 import React from "react";
 import { Transition } from "react-spring/renderprops";
+import { css, jsx } from "@emotion/react";
 
 export const ItemList = ({ items }) => {
   const arr = Object.values(items);
+
+  const outOfStock = css`
+    font-weight: bold;
+    color: crimson;
+  `;
 
   return (
     <ul>
@@ -19,8 +26,8 @@ export const ItemList = ({ items }) => {
             (
               <li
                 key={productName}
-                className={productQty < 5 ? "out_of_stock" : null}
                 style={styleProps}
+                css={productQty <= 5 ? outOfStock : null}
               >
                 {generateProductText(productName, productQty)}
               </li>
