@@ -569,6 +569,8 @@ function _interopRequireDefault(obj) {
 }
 /* @jsx jsx */
 
+/** @jsxRuntime classic */
+
 
 var ItemList = function ItemList(_ref) {
   var items = _ref.items;
