@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "storybook": "start-storybook",
     "build": "browserify index.jsx  -p esmify -o bundle.js"
   },
   "author": "idris",
@@ -47,6 +48,7 @@
     "browserify": "^17.0.0",
     "core-js": "^3.23.3",
     "esmify": "^2.1.1",
+    "html-webpack-plugin": "^5.5.0",
     "isomorphic-fetch": "^3.0.0",
     "jest": "^28.1.1",
     "jest-environment-jsdom": "^28.1.1",
