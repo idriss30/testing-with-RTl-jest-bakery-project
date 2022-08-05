@@ -1,8 +1,7 @@
 /* @jsx jsx */
 import React from "react";
 import { Transition } from "react-spring/renderprops";
-import { css, jsx, keyframes } from "@emotion/react";
-
+/** @jsxRuntime classic */ import { css, jsx, keyframes } from "@emotion/react";
 export const ItemList = ({ items }) => {
   const arr = Object.values(items);
 
