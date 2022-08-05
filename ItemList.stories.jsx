@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import { ItemList } from "./ItemList";
+import { withKnobs, object } from "@storybook/addon-knobs";
 
 export default {
   title: "ItemList",
   component: ItemList,
   includeStories: ["staticList", "animatedFunction"],
+  decorators: [withKnobs],
 };
 
 export const staticList = () => {
@@ -18,26 +20,13 @@ export const staticList = () => {
 };
 
 export const animatedFunction = () => {
-  const initialList = [
+  const knobLabel = "Contents";
+  const knobDefaultValue = [
     { productName: "cheesecake", productQty: 4 },
     { productName: "danish", productQty: 10 },
     { productName: "croissant", productQty: 2 },
   ];
 
-  const StateFulLComponent = () => {
-    const [list, setList] = useState(initialList);
-    const add = () =>
-      setList([...list, { productName: "macaroons", productQty: 90 }]);
-    const reset = () => setList(initialList);
-
-    return (
-      <>
-        <ItemList items={list} />
-        <button onClick={add}>Add Item</button>
-        <button onClick={reset}>Reset</button>
-      </>
-    );
-  };
-
-  return <StateFulLComponent />;
+  const itemList = object(knobLabel, knobDefaultValue);
+  return <ItemList itemList={itemList} />;
 };
