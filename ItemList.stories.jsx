@@ -1,12 +1,10 @@
 import React from "react";
 import { ItemList } from "./ItemList";
-import { withKnobs, object } from "@storybook/addon-knobs";
 
 export default {
   title: "ItemList",
   component: ItemList,
-  includeStories: ["staticList", "animatedFunction"],
-  decorators: [withKnobs],
+  includeStories: ["staticList", "animate"],
 };
 
 export const staticList = () => {
@@ -19,14 +17,13 @@ export const staticList = () => {
   return <ItemList items={itemsToRender} />;
 };
 
-export const animatedFunction = () => {
-  const knobLabel = "Contents";
-  const knobDefaultValue = [
+export const animate = (args) => {
+  return <ItemList {...args} />;
+};
+
+animate.args = {
+  items: [
     { productName: "cheesecake", productQty: 4 },
     { productName: "danish", productQty: 10 },
-    { productName: "croissant", productQty: 2 },
-  ];
-
-  const itemList = object(knobLabel, knobDefaultValue);
-  return <ItemList itemList={itemList} />;
+  ],
 };
